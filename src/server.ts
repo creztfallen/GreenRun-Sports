@@ -1,10 +1,9 @@
 'use strict';
 
 import Hapi from '@hapi/hapi';
-import { Server, Request } from '@hapi/hapi';
-import { Index } from './controllers/indexController';
+import { Server } from '@hapi/hapi';
 import 'dotenv/config';
-import { getAllUsers, createUser } from './controllers/userController';
+import { userRoutes } from './routes/user';
 
 const PORT = process.env.PORT || 3000;
 
@@ -17,23 +16,7 @@ export const init = async function () {
       host: '0.0.0.0',
     });
 
-    server.route({
-      method: 'GET',
-      path: '/',
-      handler: Index,
-    });
-
-    server.route({
-      method: 'POST',
-      path: '/users',
-      handler: createUser,
-    });
-
-    server.route({
-      method: 'GET',
-      path: '/users',
-      handler: getAllUsers,
-    })
+    server.route(userRoutes);
 
     return server;
   } catch (e) {

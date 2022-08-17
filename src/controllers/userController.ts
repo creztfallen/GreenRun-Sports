@@ -6,8 +6,7 @@ const prisma = new PrismaClient();
 
 export async function createUser(req: Request, reply: ResponseToolkit) {
   try {
-    const {user} : any = req.payload;
-    console.log(user)
+    const {user} = req.payload as User;
     const users = await prisma.users.create({data:user});
     return reply.response(users);
   } catch (e) {
@@ -18,7 +17,7 @@ export async function createUser(req: Request, reply: ResponseToolkit) {
 export async function getAllUsers(req: Request, reply: ResponseToolkit) {
   try {
     const users = await prisma.users.findMany();
-     reply.response(users);
+     return reply.response(users);
   } catch (e) {
     console.error(e);
   }

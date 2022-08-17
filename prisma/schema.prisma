@@ -20,7 +20,7 @@ model Users {
   username     String         @unique
   address      String
   gender       String
-  birth_date   DateTime
+  birth_date   String
   country_id   String
   city         String
   category     String
@@ -34,17 +34,17 @@ model Users {
 }
 
 model Transactions {
-  id          Int      @id @default(autoincrement())
-  user        Users    @relation(fields: [userId], references: [id])
+  id          Int       @id @default(autoincrement())
+  user        Users     @relation(fields: [userId], references: [id])
   userId      Int
   amount      Int
   category    String
   status      String
-  created_at  DateTime @default(now())
-  updated_at  DateTime @updatedAt
-  deleted     Boolean  @default(false)
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+  deleted     Boolean   @default(false)
   deleted_at  DateTime?
-  bets        Bets?    @relation(fields: [user_bet_id], references: [id])
+  bets        Bets?     @relation(fields: [user_bet_id], references: [id])
   user_bet_id Int?
 }
 

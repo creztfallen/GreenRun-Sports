@@ -3,8 +3,8 @@
 import Hapi from '@hapi/hapi';
 import { Server, Request } from '@hapi/hapi';
 import { Index } from './controllers/indexController';
-import { createUser } from './controllers/userController';
 import 'dotenv/config';
+import { getAllUsers, createUser } from './controllers/userController';
 
 const PORT = process.env.PORT || 3000;
 
@@ -29,6 +29,12 @@ export const init = async function () {
       handler: createUser,
     });
 
+    server.route({
+      method: 'GET',
+      path: '/users',
+      handler: getAllUsers,
+    })
+
     return server;
   } catch (e) {
     console.error(e);
@@ -44,9 +50,3 @@ export const start = async function (): Promise<void> {
     console.error(e);
   }
 };
-
-// process.on('unhandledRejection', (err) => {
-//   console.error('unhandledRejection');
-//   console.error(err);
-//   process.exit(1);
-// });

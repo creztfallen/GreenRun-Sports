@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id           Int            @id @default(autoincrement())
+  role         String
+  first_name   String
+  last_name    String
+  phone        String
+  email        String         @unique
+  username     String         @unique
+  address      String
+  gender       String
+  birth_date   DateTime
+  country_id   String
+  city         String
+  category     String
+  document_id  String         @unique
+  user_state   String
+  created_at   DateTime       @default(now())
+  updated_at   DateTime       @updatedAt
+  deleted      Boolean        @default(false)
+  deleted_at   DateTime?
+  Transactions Transactions[]
+}
+
+model Transactions {
+  id          Int      @id @default(autoincrement())
+  user        Users    @relation(fields: [userId], references: [id])
+  userId      Int
+  amount      Int
+  category    String
+  status      String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  deleted     Boolean  @default(false)
+  deleted_at  DateTime?
+  bets        Bets?    @relation(fields: [user_bet_id], references: [id])
+  user_bet_id Int?
+}
+
+model Bets {
+  id           Int            @id @default(autoincrement())
+  bet_option   Int
+  sport        String
+  status       String
+  name         String
+  event_id     String
+  odd          Float
+  result       String
+  created_at   DateTime       @default(now())
+  updated_at   DateTime       @updatedAt
+  deleted      Boolean        @default(false)
+  deleted_at   DateTime?
+  Transactions Transactions[]
+}

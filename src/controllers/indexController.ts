@@ -1,4 +1,4 @@
-import { Server, Request } from '@hapi/hapi';
+import { Request } from '@hapi/hapi';
 
 export function Index(req: Request): string {
     console.log('Processing request', req.info.id);

@@ -7,11 +7,11 @@ const prisma = new PrismaClient();
 export async function createUser(req: Request, reply: ResponseToolkit) {
   try {
     const { user } = req.payload as User;
-    
+
     const users = await prisma.users.create({ data: user });
     return reply.response(users);
   } catch (e) {
-    console.error(e);
+    console.error({ message: e });
   }
 }
 
@@ -20,7 +20,7 @@ export async function getAllUsers(req: Request, reply: ResponseToolkit) {
     const users = await prisma.users.findMany();
     return reply.response(users);
   } catch (e) {
-    console.error(e);
+    console.error({ message: e });
   }
 }
 
@@ -40,7 +40,7 @@ export async function getOneUser(req: Request, reply: ResponseToolkit) {
 
     return reply.response(user);
   } catch (e) {
-    console.error(e);
+    console.error({ message: e });
   }
 }
 
@@ -58,7 +58,7 @@ export async function updateUser(req: Request, reply: ResponseToolkit) {
 
     return reply.response(userUpdate);
   } catch (e) {
-    console.error(e);
+    console.error({ message: e });
   }
 }
 
@@ -67,6 +67,14 @@ export async function updateUserState(req: Request, reply: ResponseToolkit) {
     const { userId } = req.params;
     const { user } = req.payload as User;
 
+    const userCheck = await prisma.users.findUnique({
+      where: { id: +userId },
+    });
+
+    if (userCheck?.role.toLocaleLowerCase() === 'admin') {
+      console.error('You cannot block other admins.');
+      return reply.response('You cannot block other admins.');
+    }
     const users = await prisma.users.update({
       where: {
         id: +userId,
@@ -78,6 +86,6 @@ export async function updateUserState(req: Request, reply: ResponseToolkit) {
 
     return reply.response(users);
   } catch (e) {
-    console.error(e);
+    console.error({ message: e });
   }
 }

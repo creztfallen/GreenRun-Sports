@@ -18,10 +18,11 @@ export const init = async function () {
 
     server.route(Routes.user);
     server.route(Routes.bet);
+    server.route(Routes.trans);
 
     return server;
   } catch (e) {
-    console.error(e);
+     console.error({message: e});
     throw e;
   }
 };
@@ -31,6 +32,6 @@ export const start = async function (): Promise<void> {
     console.log(`Running on ${server.settings.host}:${server.settings.port}`);
     return server.start();
   } catch (e) {
-    console.error(e);
+     console.error({message: e});
   }
 };

@@ -11,7 +11,7 @@ export async function createBet(req: Request, reply: ResponseToolkit) {
 
     return reply.response(bets);
   } catch (e) {
-    console.error(e);
+    console.error({message: e});
   }
 }
 
@@ -21,7 +21,7 @@ export async function getAllBets(req: Request, reply: ResponseToolkit) { // must
 
     return reply.response(bets);
   } catch (e) {
-    console.error(e);
+    console.error({message: e});
   }
 }
 
@@ -40,6 +40,6 @@ export async function updateBets(req: Request, reply: ResponseToolkit) {
 
     return reply.response(bets);
   } catch (e) {
-    console.error(e);
+    console.error({message: e});
   }
 }

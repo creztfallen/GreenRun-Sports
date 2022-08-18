@@ -2,15 +2,15 @@ User endpoints / permissions:
 
 Place a bet on a specific event - DONEEEEEEEEEEEE
 
-Deposit money in its account (create corresponding transaction)
+Deposit money in its account (create corresponding transaction) - DONEEEEEEEEEEEE
 
-Withdraw money (create corresponding transaction)
+Withdraw money (create corresponding transaction) - DONEEEEEEEEEEEE
 
 Update user data - DONEEEEEEEEEEEE
 
 Request its balance (calculate balance based on transactions)
 
-Get its transactions (can be filtered by type deposit, withdraw, bet, winning)
+Get its transactions (can be filtered by type deposit, withdraw, bet, winning) - DONEEEEEEEEEEEE (except for the filtering part)
 
 
 
@@ -26,6 +26,6 @@ Request user balance
 
 Change a bet status (active / cancelled ) - DONEEEEEEEEEEEE
 
-Block a specific user (user state => active / blocked) (can’t block other admins) - DONEEEEEEEEEEEE (except for the other admins part)
+Block a specific user (user state => active / blocked) (can’t block other admins) - DONEEEEEEEEEEEE
 
 Settled bets results (won / lost) 

@@ -38,7 +38,7 @@ model Transactions {
   id          Int       @id @default(autoincrement())
   user        Users     @relation(fields: [userId], references: [id])
   userId      Int
-  amount      Int
+  amount      String
   category    String
   status      String
   created_at  DateTime  @default(now())

@@ -1,1 +1,7 @@
-import * as user from './user'
+import { userRoutes } from './user';
+import { betRoutes } from './bet';
+
+export const Routes = {
+  user: userRoutes,
+  bet: betRoutes,
+};

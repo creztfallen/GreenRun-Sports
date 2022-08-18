@@ -1,0 +1,31 @@
+User endpoints / permissions:
+
+Place a bet on a specific event - DONEEEEEEEEEEEE
+
+Deposit money in its account (create corresponding transaction)
+
+Withdraw money (create corresponding transaction)
+
+Update user data - DONEEEEEEEEEEEE
+
+Request its balance (calculate balance based on transactions)
+
+Get its transactions (can be filtered by type deposit, withdraw, bet, winning)
+
+
+
+
+
+Admin endpoints / permissions:
+
+List all of the bets (can be filtered by specific event or sport) (bets table) - DONEEEEEEEEEEEE (SHOULD ADD FILTER SYSTEM)
+
+List all of the user transactions (can be also filtered by specific user and/or category)
+
+Request user balance
+
+Change a bet status (active / cancelled ) - DONEEEEEEEEEEEE
+
+Block a specific user (user state => active / blocked) (can’t block other admins) - DONEEEEEEEEEEEE (except for the other admins part)
+
+Settled bets results (won / lost) 

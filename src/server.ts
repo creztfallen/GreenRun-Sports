@@ -3,7 +3,7 @@
 import Hapi from '@hapi/hapi';
 import { Server } from '@hapi/hapi';
 import 'dotenv/config';
-import { userRoutes } from './routes/user';
+import { Routes } from './routes/index';
 
 const PORT = process.env.PORT || 3000;
 
@@ -16,7 +16,8 @@ export const init = async function () {
       host: '0.0.0.0',
     });
 
-    server.route(userRoutes);
+    server.route(Routes.user);
+    server.route(Routes.bet);
 
     return server;
   } catch (e) {

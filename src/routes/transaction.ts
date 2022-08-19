@@ -1,4 +1,4 @@
-import { createTrans, getAllTrans} from "../controllers/transactionController";
+import { createTrans, getAllTrans, getFilteredTrans} from "../controllers/transactionController";
 
 export const transRoutes = [
     {
@@ -10,5 +10,11 @@ export const transRoutes = [
         method: 'GET',
         path: "/transactions",
         handler: getAllTrans
+    },
+    {
+        method: 'GET',
+        path: "/transactions/filtered",
+        handler: getFilteredTrans
     }
+
 ]

@@ -1,5 +1,4 @@
 export interface User {
-  user: {
     id: number;
     role: string;
     first_name: string;
@@ -15,5 +14,4 @@ export interface User {
     category: string;
     document_id: string;
     user_state: string;
-  };
 }

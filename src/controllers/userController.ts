@@ -1,12 +1,12 @@
 import { Request, ResponseToolkit } from '@hapi/hapi';
 import { PrismaClient } from '@prisma/client';
-import { User } from '../interfaces/user';
+import {User} from '../interfaces/user';
 
 const prisma = new PrismaClient();
 
 export async function createUser(req: Request, reply: ResponseToolkit) {
   try {
-    const { user } = req.payload as User;
+    const user = req.payload as User;
 
     const users = await prisma.users.create({ data: user });
     return reply.response(users);
@@ -47,7 +47,7 @@ export async function getOneUser(req: Request, reply: ResponseToolkit) {
 export async function updateUser(req: Request, reply: ResponseToolkit) {
   try {
     const { userId } = req.params;
-    const { user } = req.payload as User;
+    const user = req.payload as User;
 
     const userUpdate = await prisma.users.update({
       where: {
@@ -65,7 +65,7 @@ export async function updateUser(req: Request, reply: ResponseToolkit) {
 export async function updateUserState(req: Request, reply: ResponseToolkit) {
   try {
     const { userId } = req.params;
-    const { user } = req.payload as User;
+    const user = req.payload as User;
 
     const userCheck = await prisma.users.findUnique({
       where: { id: +userId },

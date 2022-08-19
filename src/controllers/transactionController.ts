@@ -6,14 +6,14 @@ const prisma = new PrismaClient();
 
 export async function createTrans(req: Request, reply: ResponseToolkit) {
   try {
-    const { transaction } = req.payload as Transaction;
+    const transaction = req.payload as Transaction;
     const transactions = await prisma.transactions.create({
       data: transaction,
     });
 
     return reply.response(transactions);
   } catch (e) {
-    console.error({message: e});
+    console.error({ message: e });
   }
 }
 
@@ -23,6 +23,19 @@ export async function getAllTrans(req: Request, reply: ResponseToolkit) {
 
     return reply.response(transactions);
   } catch (e) {
-    console.error({message: e});
+    console.error({ message: e });
+  }
+}
+
+export async function getFilteredTrans(req: Request, reply: ResponseToolkit) {
+  const query = req.query.category
+  try {
+    const transactions = await prisma.transactions.findMany({
+      where: { category: query },
+    });
+
+    return reply.response(transactions);
+  } catch (e) {
+    console.error({ message: e });
   }
 }

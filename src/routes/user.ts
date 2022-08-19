@@ -1,7 +1,6 @@
 import {
   createUser,
   getAllUsers,
-  getOneUser,
   updateUser,
   updateUserState,
 } from '../controllers/userController';
@@ -16,11 +15,6 @@ export const userRoutes = [
     method: 'GET',
     path: '/users',
     handler: getAllUsers,
-  },
-  {
-    method: 'GET',
-    path: '/users/{userId}',
-    handler: getOneUser,
   },
   {
     method: 'PUT',

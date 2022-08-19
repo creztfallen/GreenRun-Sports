@@ -1,15 +1,15 @@
 import { Request, ResponseToolkit } from '@hapi/hapi';
-import { PrismaClient } from '@prisma/client';
 import { Transaction } from '../interfaces/transaction';
-
-const prisma = new PrismaClient();
+import {
+  createTransRep,
+  getFilteredTransRep,
+  getTransRep,
+} from '../repositories/transactionRep';
 
 export async function createTrans(req: Request, reply: ResponseToolkit) {
   try {
     const transaction = req.payload as Transaction;
-    const transactions = await prisma.transactions.create({
-      data: transaction,
-    });
+    const transactions = await createTransRep(transaction);
 
     return reply.response(transactions);
   } catch (e) {
@@ -19,7 +19,7 @@ export async function createTrans(req: Request, reply: ResponseToolkit) {
 
 export async function getAllTrans(req: Request, reply: ResponseToolkit) {
   try {
-    const transactions = await prisma.transactions.findMany();
+    const transactions = await getTransRep();
 
     return reply.response(transactions);
   } catch (e) {
@@ -28,11 +28,9 @@ export async function getAllTrans(req: Request, reply: ResponseToolkit) {
 }
 
 export async function getFilteredTrans(req: Request, reply: ResponseToolkit) {
-  const query = req.query.category
+  const query = req.query.category;
   try {
-    const transactions = await prisma.transactions.findMany({
-      where: { category: query },
-    });
+    const transactions = await getFilteredTransRep(query);
 
     return reply.response(transactions);
   } catch (e) {

@@ -34,3 +34,27 @@ export async function getFilteredTransRep(category: string) {
     console.error({ message: e });
   }
 }
+
+export async function getDepositRep(userId: number) {
+  try {
+    const transactions = await prisma.transactions.findMany({
+      where: { userId: userId, category: 'deposit' },
+    });
+
+    return transactions;
+  } catch (e) {
+    console.error({ message: e });
+  }
+}
+
+export async function getWithdrawRep(userId: number) {
+  try {
+    const transactions = await prisma.transactions.findMany({
+      where: { userId: userId, category: 'withdraw' },
+    });
+
+    return transactions;
+  } catch (e) {
+    console.error({ message: e });
+  }
+}

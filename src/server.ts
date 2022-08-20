@@ -4,10 +4,12 @@ import Hapi from '@hapi/hapi';
 import { Server } from '@hapi/hapi';
 import 'dotenv/config';
 import { Routes } from './routes/index';
+import '@hapi/jwt'
 
 const PORT = process.env.PORT || 3000;
 
 export let server: Server;
+const internals = {};
 
 export const init = async function () {
   try {

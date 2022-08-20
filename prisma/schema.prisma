@@ -10,7 +10,7 @@ datasource db {
 
 model Users {
   id           Int            @id @default(autoincrement())
-  role         String
+  role         Role           @default(USER)
   first_name   String
   last_name    String
   phone        String
@@ -77,4 +77,9 @@ model User_Bets {
   updated_at DateTime  @updatedAt
   deleted    Boolean   @default(false)
   deleted_at DateTime?
+}
+
+enum Role {
+  USER
+  ADMIN
 }

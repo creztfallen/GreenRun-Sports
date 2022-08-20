@@ -15,6 +15,11 @@ export const transRoutes = [
         method: 'GET',
         path: "/transactions/filtered",
         handler: getFilteredTrans
-    }
+    },
+    // {
+    //     method: 'GET',
+    //     path: "/transactions/balance",
+    //     handler: getBalance
+    // }
 
 ]

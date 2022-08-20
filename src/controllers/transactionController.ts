@@ -28,8 +28,8 @@ export async function getAllTrans(req: Request, reply: ResponseToolkit) {
 }
 
 export async function getFilteredTrans(req: Request, reply: ResponseToolkit) {
-  const query = req.query.category;
   try {
+    const query = req.query.category;
     const transactions = await getFilteredTransRep(query);
 
     return reply.response(transactions);
@@ -37,3 +37,18 @@ export async function getFilteredTrans(req: Request, reply: ResponseToolkit) {
     console.error({ message: e });
   }
 }
+
+// export async function getBalance(req: Request, reply: ResponseToolkit) {
+//   try {
+//     const { userId } = req.query;
+//     const deposit = await getDepositRep(userId);
+//     const withdraw = await getWithdrawRep(userId)
+
+//     const d = deposit?.map((i) => +i.amount).reduce((x, y) => x + y, 0);
+//     const w = withdraw?.map((i) => +i.amount).reduce((x, y) => x + y, 0);
+
+//     return reply.response()
+//   } catch (e) {
+//     console.error({ message: e });
+//   }
+// }

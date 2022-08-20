@@ -48,7 +48,7 @@ export async function updateUserState(req: Request, reply: ResponseToolkit) {
 
     const userCheck = await findUniqueRep(userId);
 
-    if (userCheck?.role.toLocaleLowerCase() === 'admin') {
+    if (userCheck?.role.toLowerCase() === 'admin') {
       console.error('You cannot block other admins.');
       return reply.response('You cannot block other admins.');
     }

@@ -1,0 +1,336 @@
+{
+	"info": {
+		"_postman_id": "f2e1908e-05e3-48c1-948a-c1e6cdfbff9c",
+		"name": "GreenRun",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19884652"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "GET USERS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST USERS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"role\": \"admin\",\n    \"first_name\": \"Gandalf\",\n    \"last_name\": \"The Gray\",\n    \"phone\": \"22552255\",\n    \"email\": \"gandalf@gmail.com\",\n    \"username\": \"Mithrandir\",\n    \"address\": \"middle-earth\",\n    \"gender\": \"Male\",\n    \"birth_date\": \"17/04/1998\",\n    \"country_id\": \"me\",\n    \"city\": \"Gondor\",\n    \"category\": \"\",\n    \"document_id\": \"7\",\n    \"user_state\": \"active\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET USER",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/11",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT USER",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"role\": \"admin\",\n    \"first_name\": \"Yennefer\",\n    \"last_name\": \"of Vengerberg\",\n    \"phone\": \"656565656565\",\n    \"email\": \"yennefer-sorcerer@gmail.com\",\n    \"username\": \"yen\",\n    \"address\": \"Vengerberg\",\n    \"gender\": \"Female\",\n    \"birth_date\": \"17/04/1998\",\n    \"country_id\": \"BR\",\n    \"city\": \"Rio de Janeiro\",\n    \"category\": \"\",\n    \"document_id\": \"5\",\n    \"user_state\": \"active\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/11",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH USER STATE",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_state\": \"blocked\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/18",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"18"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bets",
+			"item": [
+				{
+					"name": "POST BETS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bet_option\": 3,\n    \"sport\": \"Horse Race\",\n    \"status\": \"active\",\n    \"name\": \"Thunder\",\n    \"event_id\": \"match:000003\",\n    \"odd\": 2.8,\n    \"result\": \"win\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/bets",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET BETS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/bets",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH BET",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"active\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/bets/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET FILTERED BETS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/bets/filtered?event_id=match:000002&sport=baseball",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bets",
+								"filtered"
+							],
+							"query": [
+								{
+									"key": "event_id",
+									"value": "match:000002"
+								},
+								{
+									"key": "sport",
+									"value": "baseball"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "POST TRANSACTIONS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 11,\n    \"amount\": \"2000,00\",\n    \"category\": \"withdraw\",\n    \"status\": \"active\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/transactions",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET TRANSACTIONS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/transactions",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET FILTERED TRANSACTIONS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/transactions/filtered?category=withdraw",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transactions",
+								"filtered"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "withdraw"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET BALANCE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/transactions/balance",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transactions",
+								"balance"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

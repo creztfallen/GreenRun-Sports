@@ -6,7 +6,9 @@
   "scripts": {
     "dev:tsc": "tsc --watch -p .",
     "dev:serve": "nodemon -e js -w lib lib/main.js",
-    "dev": "run-p dev:*"
+    "dev": "run-p dev:*",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
